@@ -4,464 +4,624 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MBK Medical Skin Care · Physician-Led Medical Aesthetics · Port Coquitlam, BC</title>
-<meta name="description" content="MBK Medical Skin Care — a physician-led cosmetic clinic in Central Coquitlam, established 2006 by Dr. Margret B-Kwiatkowski. Botox®, dermal fillers, laser & IPL. Minimal dosages, optimal results.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{
   --cream:#faf5f1;
-  --ivory:#f4ebe4;
+  --cream2:#f4ebe4;
   --white:#fffdfb;
   --rose:#a5586b;
   --mauve:#c98a97;
-  --plum:#2e2429;
-  --muted:#6f6167;
+  --ink:#2e2429;
+  --ink-soft:#5a4a50;
   --line:rgba(165,88,107,.22);
 }
-*{margin:0;padding:0;box-sizing:border-box}
+*{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Jost',sans-serif;font-weight:300;color:var(--plum);background:var(--cream);line-height:1.7;overflow-x:hidden}
-h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.1}
+body{
+  font-family:'Jost',sans-serif;
+  font-weight:300;
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.1;letter-spacing:.3px}
+img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
-section{padding:clamp(3.5rem,8vw,7rem) clamp(1.25rem,5vw,5rem)}
-.eyebrow{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--rose);font-weight:400;margin-bottom:1.1rem}
+
+.eyebrow{
+  font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--rose);font-weight:400;margin-bottom:1.2rem;
+}
+.btn{
+  display:inline-block;font-family:'Jost',sans-serif;font-weight:400;
+  font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;
+  padding:1rem 2rem;border:1px solid var(--rose);cursor:pointer;
+  background:var(--rose);color:var(--white);
+  transition:transform .4s cubic-bezier(.2,.8,.2,1),background .4s,color .4s,box-shadow .4s;
+  position:relative;
+}
+.btn:hover{transform:translateY(-3px);box-shadow:0 14px 30px -12px rgba(165,88,107,.55)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--white);border-color:var(--ink)}
 
 /* NAV */
-header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,245,241,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);transition:.3s}
-nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem clamp(1.25rem,5vw,5rem)}
-.wordmark{display:flex;align-items:baseline;gap:.55rem;line-height:1}
-.wordmark .mono{font-family:'Cormorant Garamond',serif;font-size:1.85rem;font-weight:600;color:var(--rose);letter-spacing:.04em}
-.wordmark .sub{font-size:.56rem;letter-spacing:.32em;text-transform:uppercase;color:var(--plum);font-weight:400}
-.nav-links{display:flex;align-items:center;gap:2.1rem;list-style:none}
-.nav-links a{font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--plum);transition:.25s}
-.nav-links a:hover{color:var(--rose)}
-.btn{font-family:'Jost',sans-serif;font-weight:400;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;border:none;transition:.3s}
-.btn-primary{background:var(--rose);color:#fff;padding:.85rem 1.7rem;border:1px solid var(--rose)}
-.btn-primary:hover{background:transparent;color:var(--rose)}
-.btn-outline{background:transparent;color:var(--rose);border:1px solid var(--rose);padding:.85rem 1.7rem}
-.btn-outline:hover{background:var(--rose);color:#fff}
-.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:.4rem}
-.hamburger span{width:24px;height:1.5px;background:var(--plum);transition:.3s}
+nav#topnav{
+  position:fixed;top:0;left:0;width:100%;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.4rem clamp(1.2rem,5vw,4rem);
+  transition:background .4s,backdrop-filter .4s,padding .4s,box-shadow .4s;
+}
+nav#topnav.scrolled{
+  background:rgba(250,245,241,.82);
+  backdrop-filter:blur(14px);
+  box-shadow:0 1px 0 var(--line);
+  padding-top:1rem;padding-bottom:1rem;
+}
+.brand{
+  font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;
+  letter-spacing:.06em;color:var(--ink);background:transparent;line-height:1;
+}
+.brand small{display:block;font-family:'Jost';font-weight:300;font-size:.5rem;letter-spacing:.32em;text-transform:uppercase;color:var(--rose);margin-top:.28rem}
+.navlinks{display:flex;align-items:center;gap:2.2rem}
+.navlinks a{
+  font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);
+  position:relative;padding:.2rem 0;font-weight:400;transition:color .3s;
+}
+.navlinks a::after{
+  content:"";position:absolute;left:0;bottom:-4px;width:0;height:1px;background:var(--rose);
+  transition:width .4s cubic-bezier(.2,.8,.2,1);
+}
+.navlinks a:hover{color:var(--rose)}
+.navlinks a:hover::after{width:100%}
+.navlinks .btn{padding:.7rem 1.5rem}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.hamburger span{width:26px;height:2px;background:var(--ink);transition:.3s}
 
 /* HERO */
-.hero{display:grid;grid-template-columns:1.05fr 1fr;min-height:100vh;padding:0;margin-top:0}
-.hero-img{background:url('img/mbk-medical-skincare-hero.jpg') center/cover no-repeat;position:relative;min-height:60vh}
-.hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(46,36,41,.05),rgba(165,88,107,.12))}
-.hero-text{background:var(--cream);display:flex;flex-direction:column;justify-content:center;padding:clamp(3rem,7vw,6rem) clamp(1.5rem,5vw,5rem)}
-.hero-text h1{font-size:clamp(2.6rem,5.5vw,4.4rem);margin:.4rem 0 1.4rem}
-.hero-text h1 em{font-style:italic;color:var(--rose)}
-.hero-text .sub{font-size:1.02rem;color:var(--muted);max-width:34rem;margin-bottom:1.4rem}
-.hero-freebie{font-size:.9rem;color:var(--plum);border-left:2px solid var(--mauve);padding-left:1rem;margin-bottom:2rem;font-weight:400}
-.hero-freebie strong{color:var(--rose);font-weight:500}
-.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem}
-.hero-phone{font-size:1rem;letter-spacing:.05em;color:var(--rose);font-weight:400}
-.trustline{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:.6rem}
+.hero{
+  min-height:100vh;display:grid;grid-template-columns:1.05fr 1fr;
+  position:relative;
+}
+.hero-text{
+  display:flex;flex-direction:column;justify-content:flex-start;
+  padding:clamp(7rem,15vh,10rem) clamp(1.5rem,5vw,4.5rem) 3rem;
+  background:var(--cream);
+}
+.hero-text .eyebrow{margin-top:.5rem}
+.hero h1{
+  font-size:clamp(2.8rem,6vw,4.8rem);color:var(--ink);margin-bottom:1.4rem;
+}
+.hero h1 em{font-style:italic;color:var(--rose)}
+.hero .sub{font-size:clamp(1rem,1.4vw,1.12rem);color:var(--ink-soft);max-width:34rem;margin-bottom:1.5rem}
+.hero .free{
+  font-size:.85rem;letter-spacing:.03em;color:var(--rose);border-left:2px solid var(--mauve);
+  padding-left:1rem;margin-bottom:2rem;max-width:34rem;
+}
+.hero-cta{display:flex;flex-wrap:wrap;gap:1rem;align-items:center}
+.hero-phone{font-size:.9rem;letter-spacing:.05em;color:var(--ink-soft);margin-left:.4rem}
+.trustline{margin-top:1.6rem;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mauve)}
+.hero-img{
+  background:url('img/mbk-medical-skincare-hero.jpg') center/cover no-repeat,
+             linear-gradient(135deg,#e8d4d8,#c98a97);
+  position:relative;
+}
+.hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(250,245,241,.35),transparent 40%)}
+
+/* SECTIONS */
+section{padding:clamp(4rem,9vw,7.5rem) clamp(1.2rem,6vw,5rem)}
+.section-head{max-width:640px;margin-bottom:3.2rem}
+.section-head h2{font-size:clamp(2rem,4vw,3.2rem);color:var(--ink)}
+.section-head h2 em{font-style:italic;color:var(--rose)}
 
 /* ABOUT */
-.about{background:var(--ivory)}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center;max-width:1200px;margin:0 auto}
-.about-visual{position:relative;padding:1rem}
-.about-visual .frame{border:1px solid var(--rose);padding:.7rem}
-.about-visual img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
-.about-chip{position:absolute;bottom:1.6rem;left:1.6rem;background:var(--white);color:var(--rose);font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;padding:.55rem 1rem;border:1px solid var(--line)}
-.about h2{font-size:clamp(2rem,4vw,3.1rem);margin-bottom:1.5rem}
-.about h2 em{font-style:italic;color:var(--rose)}
-.about p{color:var(--muted);margin-bottom:1.2rem}
-.about .accent{color:var(--plum);border-top:1px solid var(--line);padding-top:1.3rem;font-size:.95rem}
+#about{background:var(--cream2)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.about-visual{position:relative;overflow:hidden;border:1px solid var(--line);padding:12px;background:var(--white)}
+.about-visual .frame{overflow:hidden}
+.about-visual img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease;aspect-ratio:4/5}
+.about-visual:hover img{transform:scale(1.06)}
+.about-chip{
+  position:absolute;bottom:24px;left:24px;background:rgba(250,245,241,.94);
+  padding:.6rem 1.1rem;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--rose);
+}
+.about-body p{margin-bottom:1.3rem;color:var(--ink-soft)}
+.about-accent{
+  border-top:1px solid var(--line);padding-top:1.4rem;font-size:.95rem;color:var(--ink);
+}
 
 /* TREATMENTS */
-.treatments{background:var(--cream)}
-.section-head{text-align:center;max-width:640px;margin:0 auto 3.5rem}
-.section-head h2{font-size:clamp(2rem,4.2vw,3.2rem)}
-.section-head h2 em{font-style:italic;color:var(--rose)}
-.section-head p{color:var(--muted);margin-top:.8rem}
-.treat-group{max-width:1150px;margin:0 auto 3rem}
-.group-title{display:flex;align-items:center;gap:1.2rem;font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--rose);font-weight:400;margin-bottom:1.6rem}
-.group-title::after{content:"";flex:1;height:1px;background:var(--line)}
-.treat-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.1rem}
-.treat-card{background:var(--white);border:1px solid var(--line);padding:1.7rem 1.6rem;cursor:pointer;transition:.35s;position:relative;overflow:hidden}
-.treat-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--mauve);transform:scaleY(0);transform-origin:top;transition:.35s}
-.treat-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(46,36,41,.08)}
-.treat-card:hover::before{transform:scaleY(1)}
-.treat-card h3{font-size:1.4rem;margin-bottom:.5rem}
-.treat-card .more{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--rose);margin-top:1rem;display:inline-flex;align-items:center;gap:.4rem}
-.treat-card .snippet{font-size:.88rem;color:var(--muted)}
+#treatments{background:var(--cream)}
+.tgroup{margin-bottom:3rem}
+.tgroup h3{
+  font-size:1.4rem;color:var(--rose);letter-spacing:.05em;margin-bottom:1.3rem;
+  display:flex;align-items:center;gap:1rem;
+}
+.tgroup h3::after{content:"";flex:1;height:1px;background:var(--line)}
+.tcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.2rem}
+.tcard{
+  background:var(--white);border:1px solid var(--line);padding:1.6rem 1.7rem;cursor:pointer;
+  transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s,border-color .4s;
+  display:flex;flex-direction:column;justify-content:space-between;min-height:150px;
+}
+.tcard:hover{transform:translateY(-6px);box-shadow:0 22px 40px -22px rgba(46,36,41,.35);border-color:var(--mauve)}
+.tcard h4{font-size:1.35rem;color:var(--ink);margin-bottom:.6rem}
+.tcard p{font-size:.85rem;color:var(--ink-soft);line-height:1.6}
+.tcard .more{margin-top:1rem;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--rose);transition:letter-spacing .4s}
+.tcard:hover .more{letter-spacing:.28em}
 
 /* REVIEWS */
-.reviews{background:var(--ivory)}
-.rev-badge{display:inline-block;margin:0 auto 2.5rem;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--rose);border:1px solid var(--rose);padding:.55rem 1.3rem;background:var(--white)}
-.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.4rem;max-width:1150px;margin:0 auto}
-.rev-card{background:var(--white);border:1px solid var(--line);padding:2rem 1.8rem}
-.stars{color:var(--mauve);letter-spacing:.2em;font-size:.95rem;margin-bottom:1rem}
-.rev-card p{font-family:'Cormorant Garamond',serif;font-size:1.28rem;font-style:italic;color:var(--plum);line-height:1.4}
-.rev-card .who{margin-top:1.2rem;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--rose)}
+#reviews{background:var(--cream2)}
+.rev-badge{
+  display:inline-block;margin-bottom:2rem;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--rose);border:1px solid var(--line);padding:.6rem 1.2rem;background:var(--white);
+}
+.revgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.4rem}
+.revcard{background:var(--white);border:1px solid var(--line);padding:2rem;transition:transform .4s,box-shadow .4s}
+.revcard:hover{transform:translateY(-5px);box-shadow:0 20px 38px -24px rgba(46,36,41,.3)}
+.stars{color:var(--mauve);letter-spacing:.2em;margin-bottom:1rem;font-size:.9rem}
+.revcard p{font-style:italic;font-family:'Cormorant Garamond',serif;font-size:1.25rem;line-height:1.5;color:var(--ink);margin-bottom:1rem}
+.revcard .who{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--rose)}
+
+/* CTA */
+#cta{background:var(--rose);color:var(--white);text-align:center}
+#cta h2{font-size:clamp(2.2rem,5vw,3.6rem);margin-bottom:1rem}
+#cta p{max-width:40rem;margin:0 auto 2rem;color:rgba(255,253,251,.9)}
+#cta .btn{background:var(--white);color:var(--rose);border-color:var(--white)}
+#cta .btn:hover{background:transparent;color:var(--white)}
 
 /* CONTACT */
-.contact{background:var(--cream)}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);max-width:1150px;margin:0 auto;align-items:stretch}
-.contact-info h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:1.5rem}
-.contact-info h2 em{font-style:italic;color:var(--rose)}
-.contact-info .row{margin-bottom:1.4rem}
-.contact-info .label{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--rose);margin-bottom:.3rem}
-.contact-info .val{font-size:1.05rem;color:var(--plum)}
-.contact-info .val a{color:var(--rose)}
-.contact-info .note{color:var(--muted);font-size:.92rem;border-top:1px solid var(--line);padding-top:1.2rem;margin-top:.5rem}
-.map-wrap{border:1px solid var(--rose);padding:.6rem;min-height:340px}
-.map-wrap iframe{width:100%;height:100%;min-height:320px;border:0;filter:grayscale(.2) contrast(.95)}
-.contact .btn-primary{margin-top:.8rem}
-
-/* FINAL CTA */
-.final{background:linear-gradient(135deg,#3a2c31,var(--plum));color:#fff;text-align:center}
-.final h2{font-size:clamp(2.2rem,5vw,3.6rem);margin-bottom:1rem}
-.final h2 em{font-style:italic;color:var(--mauve)}
-.final p{color:rgba(255,255,255,.75);max-width:40rem;margin:0 auto 2rem}
-.final .btn-primary{background:var(--mauve);border-color:var(--mauve)}
-.final .btn-primary:hover{background:transparent;color:var(--mauve)}
+#contact{background:var(--cream)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(2rem,5vw,4rem);align-items:stretch}
+.contact-info p{margin-bottom:.4rem;color:var(--ink-soft)}
+.contact-info .label{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--rose);margin-top:1.6rem;margin-bottom:.3rem}
+.contact-info a:hover{color:var(--rose)}
+.map-wrap{overflow:hidden;border:1px solid var(--line);min-height:340px}
+.map-wrap iframe{width:100%;height:100%;min-height:340px;border:0;filter:saturate(.85)}
 
 /* FOOTER */
-footer{background:#241b1f;color:rgba(255,255,255,.7);padding:clamp(2.5rem,6vw,4rem) clamp(1.25rem,5vw,5rem) 1.8rem}
-.foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem;max-width:1150px;margin:0 auto 2.5rem}
-.foot-word .mono{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--mauve)}
-.foot-word .sub{font-size:.56rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.6)}
-.foot-word .tag{font-size:.9rem;color:rgba(255,255,255,.6);margin-top:1rem;max-width:22rem}
-footer h4{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mauve);margin-bottom:1.1rem;font-family:'Jost',sans-serif;font-weight:400}
-footer ul{list-style:none}
-footer ul li{margin-bottom:.6rem;font-size:.9rem}
-footer ul li a:hover{color:#fff}
-.foot-book{background:none;border:none;color:rgba(255,255,255,.7);cursor:pointer;font-family:'Jost';font-weight:300;font-size:.9rem;padding:0;letter-spacing:.02em}
-.foot-book:hover{color:#fff}
-.foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:1.5rem;max-width:1150px;margin:0 auto;display:flex;flex-wrap:wrap;gap:.6rem;justify-content:space-between;font-size:.72rem;color:rgba(255,255,255,.45)}
-.foot-tm{font-size:.66rem;color:rgba(255,255,255,.35);max-width:1150px;margin:1.2rem auto 0;line-height:1.6}
+footer{background:var(--ink);color:#e6d9dd;padding:clamp(3rem,6vw,4.5rem) clamp(1.2rem,6vw,5rem) 2rem}
+.foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2rem;margin-bottom:2.5rem}
+.foot-brand{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;letter-spacing:.06em;color:var(--white)}
+.foot-brand small{display:block;font-family:'Jost';font-weight:300;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mauve);margin-top:.4rem}
+.foot-links{display:flex;flex-wrap:wrap;gap:1.6rem;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase}
+.foot-links a{transition:color .3s}.foot-links a:hover{color:var(--mauve);cursor:pointer}
+.foot-contact{font-size:.85rem;color:#cbb9bf;line-height:1.9}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:1.6rem;font-size:.72rem;letter-spacing:.1em;color:#a58f96;display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
 
-/* MODALS */
-.modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:1.25rem;background:rgba(46,36,41,.55);backdrop-filter:blur(4px)}
-.modal.open{display:flex}
-.modal-box{background:var(--white);max-width:560px;width:100%;max-height:90vh;overflow-y:auto;padding:clamp(1.8rem,4vw,3rem);position:relative;border-top:3px solid var(--rose)}
-.modal-close{position:absolute;top:1rem;right:1.2rem;background:none;border:none;font-size:1.8rem;color:var(--muted);cursor:pointer;line-height:1}
-.modal-close:hover{color:var(--rose)}
-.modal-box .m-eyebrow{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--rose);margin-bottom:.6rem}
-.modal-box h3{font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:1rem;color:var(--plum)}
-.modal-box p{color:var(--muted);font-size:1rem}
-.modal-box form label{display:block;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rose);margin:1rem 0 .35rem}
-.modal-box input,.modal-box select,.modal-box textarea{width:100%;padding:.75rem .85rem;border:1px solid var(--line);background:var(--cream);font-family:'Jost';font-weight:300;font-size:.95rem;color:var(--plum)}
-.modal-box textarea{resize:vertical;min-height:90px}
-.modal-box input:focus,.modal-box select:focus,.modal-box textarea:focus{outline:none;border-color:var(--rose)}
-.modal-box form .btn-primary{width:100%;margin-top:1.5rem;padding:1rem}
-.form-success{display:none;text-align:center;padding:1rem 0}
+/* MODAL */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(46,36,41,.55);backdrop-filter:blur(4px);
+  display:none;align-items:center;justify-content:center;z-index:200;padding:1.2rem;
+  opacity:0;transition:opacity .35s;
+}
+.modal-overlay.open{display:flex;opacity:1}
+.modal{
+  background:var(--white);max-width:600px;width:100%;max-height:90vh;overflow-y:auto;
+  padding:clamp(1.8rem,4vw,3rem);position:relative;border-top:3px solid var(--rose);
+  transform:translateY(20px);transition:transform .4s cubic-bezier(.2,.8,.2,1);
+}
+.modal-overlay.open .modal{transform:translateY(0)}
+.modal-close{
+  position:absolute;top:1rem;right:1.2rem;background:none;border:none;font-size:1.8rem;
+  color:var(--ink-soft);cursor:pointer;line-height:1;transition:color .3s,transform .3s;
+}
+.modal-close:hover{color:var(--rose);transform:rotate(90deg)}
+.modal .eyebrow{margin-bottom:.6rem}
+.modal h3{font-size:clamp(1.8rem,4vw,2.4rem);color:var(--ink);margin-bottom:1rem}
+.modal p{color:var(--ink-soft);margin-bottom:1.2rem}
+.modal h4{font-size:1.3rem;color:var(--rose);margin:1.4rem 0 .6rem}
+.modal ul{list-style:none;margin-bottom:1rem}
+.modal ul li{position:relative;padding-left:1.4rem;margin-bottom:.5rem;color:var(--ink-soft);font-size:.95rem}
+.modal ul li::before{content:"";position:absolute;left:0;top:.6em;width:7px;height:7px;background:var(--mauve);border-radius:50%}
+.modal .btn{margin-top:1rem}
+
+/* FORM */
+.form-field{margin-bottom:1.1rem}
+.form-field label{display:block;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rose);margin-bottom:.4rem}
+.form-field input,.form-field select,.form-field textarea{
+  width:100%;padding:.85rem 1rem;border:1px solid var(--line);background:var(--cream);
+  font-family:'Jost';font-weight:300;font-size:.95rem;color:var(--ink);transition:border-color .3s,box-shadow .3s;
+}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{
+  outline:none;border-color:var(--rose);box-shadow:0 0 0 3px rgba(165,88,107,.12)
+}
+.form-field textarea{resize:vertical;min-height:90px}
+.form-success{display:none;text-align:center;padding:1.5rem 0;color:var(--rose);font-family:'Cormorant Garamond';font-size:1.4rem}
 .form-success.show{display:block}
-.form-success p{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-style:italic;color:var(--rose)}
 
 /* REVEAL */
-.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
-.js .reveal.in{opacity:1;transform:none}
-.no-js .reveal{opacity:1;transform:none}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.stagger>*{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.stagger.in>*{opacity:1;transform:none}
+.stagger.in>*:nth-child(2){transition-delay:.08s}
+.stagger.in>*:nth-child(3){transition-delay:.16s}
+.stagger.in>*:nth-child(4){transition-delay:.24s}
+.stagger.in>*:nth-child(5){transition-delay:.32s}
+.stagger.in>*:nth-child(6){transition-delay:.4s}
 
-@media(max-width:900px){
+@media (max-width:880px){
   .hero{grid-template-columns:1fr}
   .hero-img{min-height:42vh;order:-1}
-  .about-grid,.contact-grid,.foot-top{grid-template-columns:1fr}
-  .foot-top{gap:2rem}
-}
-@media(max-width:760px){
-  .nav-links{position:fixed;top:0;right:0;height:100vh;width:78%;max-width:320px;background:var(--cream);flex-direction:column;justify-content:center;gap:2rem;transform:translateX(100%);transition:.4s;box-shadow:-10px 0 40px rgba(0,0,0,.1);z-index:110}
-  .nav-links.open{transform:translateX(0)}
+  .hero-text{padding-top:6rem}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .navlinks{
+    position:fixed;top:0;right:0;height:100vh;width:min(78vw,320px);
+    background:var(--cream);flex-direction:column;justify-content:center;align-items:flex-start;
+    padding:2.5rem;gap:1.8rem;transform:translateX(100%);transition:transform .45s cubic-bezier(.2,.8,.2,1);
+    box-shadow:-20px 0 50px -30px rgba(46,36,41,.5);
+  }
+  .navlinks.open{transform:translateX(0)}
+  .navlinks a{font-size:1rem}
   .hamburger{display:flex;z-index:120}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+  .reveal,.stagger>*{opacity:1;transform:none}
 }
 </style>
 </head>
-<body class="no-js">
-<script>document.body.classList.remove('no-js');</script>
+<body>
 
-<header>
-  <nav>
-    <a href="#top" class="wordmark" aria-label="MBK Medical Skin Care">
-      <span class="mono">MBK</span>
-      <span class="sub">Medical<br>Skin&nbsp;Care</span>
-    </a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#about">About</a></li>
-      <li><a href="#treatments">Treatments</a></li>
-      <li><a href="#reviews">Reviews</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><button class="btn btn-primary" onclick="openBooking()">Book Now</button></li>
-    </ul>
-    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-  </nav>
-</header>
+<nav id="topnav">
+  <div class="brand">MBK<small>Medical Skin Care</small></div>
+  <div class="navlinks" id="navlinks">
+    <a href="#about">About</a>
+    <a href="#treatments">Treatments</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+    <a class="btn" data-book>Book Now</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
 
 <!-- HERO -->
-<section class="hero" id="top">
-  <div class="hero-img" role="img" aria-label="MBK Medical Skin Care clinic"></div>
+<header class="hero">
   <div class="hero-text">
-    <p class="eyebrow">Physician-Led Medical Aesthetics · Port Coquitlam, BC · Established 2006</p>
-    <h1>Cosmetic medicine,<br><em>done responsibly.</em></h1>
-    <p class="sub">A physician-led cosmetic clinic in Central Coquitlam, established in 2006 by Dr. Margret B-Kwiatkowski, MD, CCFP, FCFP. Minimal dosages, optimal results, and honest advice — in a warm, relaxing atmosphere.</p>
-    <p class="hero-freebie">Your initial consultation with our doctor is <strong>FREE</strong> · Ask about our loyalty program</p>
-    <div class="hero-btns">
-      <button class="btn btn-primary" onclick="openBooking()">Book a Consultation</button>
-      <a href="#treatments" class="btn btn-outline">Explore Treatments</a>
+    <div class="eyebrow reveal">Physician-Led Medical Aesthetics · Port Coquitlam, BC · Established 2006</div>
+    <h1 class="reveal">Cosmetic medicine, <em>done responsibly.</em></h1>
+    <p class="sub reveal">A physician-led cosmetic clinic in Central Coquitlam, established in 2006 by Dr. Margret B-Kwiatkowski, MD, CCFP, FCFP. Minimal dosages, optimal results, and honest advice — in a warm, relaxing atmosphere.</p>
+    <p class="free reveal">Your initial consultation with our doctor is FREE · Ask about our loyalty program</p>
+    <div class="hero-cta reveal">
+      <button class="btn" data-book>Book a Consultation</button>
+      <a class="btn ghost" href="#treatments">Explore Treatments</a>
+      <span class="hero-phone">778-997-2273</span>
     </div>
-    <p class="hero-phone">778-997-2273</p>
-    <p class="trustline">Physician-established · Trusted in Coquitlam since 2006</p>
+    <div class="trustline reveal">Physician-established · Trusted in Coquitlam since 2006</div>
   </div>
-</section>
+  <div class="hero-img" role="img" aria-label="MBK Medical Skin Care clinic"></div>
+</header>
 
 <!-- ABOUT -->
-<section class="about" id="about">
+<section id="about">
+  <div class="section-head reveal">
+    <div class="eyebrow">Our Clinic</div>
+    <h2>In Coquitlam since 2006. <em>Led by a physician.</em></h2>
+  </div>
   <div class="about-grid">
     <div class="about-visual reveal">
-      <div class="frame">
-        <img src="img/mbk-medical-skincare-about.jpg" alt="Inside the MBK Medical Skin Care clinic">
-      </div>
-      <span class="about-chip">Est. 2006 · Coquitlam</span>
+      <div class="frame"><img src="img/mbk-medical-skincare-about.jpg" alt="Inside MBK Medical Skin Care"></div>
+      <span class="about-chip">Central Coquitlam · Est. 2006</span>
     </div>
-    <div class="reveal">
-      <p class="eyebrow">Our Clinic</p>
-      <h2>In Coquitlam since 2006.<br><em>Led by a physician.</em></h2>
-      <p>At MBK Medical Skin Care we are always focused on your long-term health and satisfaction, and we advise you accordingly about all your options to enhance your natural beauty and youthful appearance. We use minimal dosages of products and treatments to achieve optimal results in a safe and responsible manner. We are dedicated to listen to you. All this happens in a warm and relaxing atmosphere of our cosmetic clinic.</p>
-      <p class="accent">Established in 2006 by Dr. Margret B-Kwiatkowski, MD, CCFP, FCFP. We use state-of-the-art equipment (from Cynosure) and the highest quality, reputable brand-name products for every procedure. Most of our patients are from Coquitlam, Burnaby, Port Moody, New Westminster, Maple Ridge and Langley — but everybody from British Columbia is welcome.</p>
+    <div class="about-body reveal">
+      <p>At MBK Medical Skin Care we are always focused on your long-term health and satisfaction, and we advise you accordingly about all your options to enhance your natural beauty and youthful appearance. We use minimal dosages of products and treatments to achieve optimal results in a safe and responsible manner.</p>
+      <p>We are dedicated to listen to you. All this happens in a warm and relaxing atmosphere of our cosmetic clinic.</p>
+      <p class="about-accent">Established in 2006 by Dr. Margret B-Kwiatkowski, MD, CCFP, FCFP. We use state-of-the-art equipment (from Cynosure) and the highest quality, reputable brand-name products for every procedure. Most of our patients are from Coquitlam, Burnaby, Port Moody, New Westminster, Maple Ridge and Langley — but everybody from British Columbia is welcome.</p>
     </div>
   </div>
 </section>
 
 <!-- TREATMENTS -->
-<section class="treatments" id="treatments">
+<section id="treatments">
   <div class="section-head reveal">
-    <p class="eyebrow">Treatments</p>
-    <h2>Treatments, chosen <em>with care</em>.</h2>
-    <p>Every treatment begins with an honest conversation. Select any treatment below to learn more.</p>
+    <div class="eyebrow">Our Services</div>
+    <h2>Treatments, <em>tailored responsibly.</em></h2>
   </div>
-  <div id="treatGroups"></div>
+
+  <div class="tgroup reveal">
+    <h3>Botox® &amp; Therapeutic</h3>
+    <div class="tcards stagger" data-cards="botox"></div>
+  </div>
+  <div class="tgroup reveal">
+    <h3>Dermal Fillers</h3>
+    <div class="tcards stagger" data-cards="fillers"></div>
+  </div>
+  <div class="tgroup reveal">
+    <h3>Laser &amp; IPL</h3>
+    <div class="tcards stagger" data-cards="laser"></div>
+  </div>
+  <div class="tgroup reveal">
+    <h3>Consultation &amp; Skin Care</h3>
+    <div class="tcards stagger" data-cards="consult"></div>
+  </div>
 </section>
 
 <!-- REVIEWS -->
-<section class="reviews" id="reviews">
+<section id="reviews">
   <div class="section-head reveal">
-    <p class="eyebrow">Reviews</p>
-    <h2>Words from <em>our patients</em>.</h2>
-    <div class="rev-badge">Physician-established · Trusted in Coquitlam since 2006</div>
+    <div class="eyebrow">Kind Words</div>
+    <h2>What our patients <em>say.</em></h2>
+    <span class="rev-badge">★ Physician-established · Trusted in Coquitlam since 2006</span>
   </div>
-  <div class="rev-grid" id="revGrid"></div>
+  <div class="revgrid stagger">
+    <div class="revcard"><div class="stars">★★★★★</div><p>“I cannot thank Ainslie Sessions and Dr. B-Kwiatkowski enough for all they have done for me. Their kind support and professional service have left me feeling and looking like a whole new me.”</p><div class="who">A.T.</div></div>
+    <div class="revcard"><div class="stars">★★★★★</div><p>“Thanks to MBK Medical Skin Care, I can now wear a skirt again in the summer since my varicose veins are gone!”</p><div class="who">J.K.</div></div>
+    <div class="revcard"><div class="stars">★★★★★</div><p>“The filler treatments have dramatically reduced my facial wrinkles and surgical scars, thank you MBK!”</p><div class="who">A.M.</div></div>
+    <div class="revcard"><div class="stars">★★★★★</div><p>“Everyone at work now compliments me on my great complexion, thanks to the photorejuvenation and Botox Cosmetic® treatments I've received by MBK Medical Skin Care. Thank you Dr. B-Kwiatkowski and Ainslie Sessions!”</p><div class="who">G.L.</div></div>
+    <div class="revcard"><div class="stars">★★★★★</div><p>“I have suffered from lines around my eyes for over 10 years now. Thanks to the Botox® Cosmetic injections I received at MBK, I no longer have to worry about my excessive lines.”</p><div class="who">M.H.</div></div>
+    <div class="revcard"><div class="stars">★★★★★</div><p>“I couldn't be happier with the results of the photorejuvenation procedures performed on me at MBK. My rosacea is finally gone!”</p><div class="who">J.V.</div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="reveal">
+    <div class="eyebrow" style="color:rgba(255,253,251,.75)">Begin Your Consultation</div>
+    <h2>Your first consultation is free.</h2>
+    <p>Speak with our physician about your goals. Minimal dosages, optimal results, and honest advice — in a calm, relaxing setting.</p>
+    <button class="btn" data-book>Book a Consultation</button>
+  </div>
 </section>
 
 <!-- CONTACT -->
-<section class="contact" id="contact">
+<section id="contact">
+  <div class="section-head reveal">
+    <div class="eyebrow">Contact &amp; Location</div>
+    <h2>Easy to find in <em>Central Coquitlam.</em></h2>
+  </div>
   <div class="contact-grid">
     <div class="contact-info reveal">
-      <p class="eyebrow">Contact & Location</p>
-      <h2>Visit us in <em>Port Coquitlam</em>.</h2>
-      <div class="row">
-        <div class="label">Address</div>
-        <div class="val">350-2755 Lougheed Hwy,<br>Port Coquitlam, BC V3B 5Y9</div>
-      </div>
-      <div class="row">
-        <div class="label">Phone</div>
-        <div class="val"><a href="tel:+17789972273">778-997-2273</a> (CARE)</div>
-      </div>
-      <p class="note">All visits are by appointment only. Your initial consultation with our doctor is <strong>FREE</strong> — reach us by phone or through our booking form and we will be in touch to confirm.</p>
-      <button class="btn btn-primary" onclick="openBooking()">Book a Consultation</button>
+      <div class="label">Address</div>
+      <p>350-2755 Lougheed Hwy<br>Port Coquitlam, BC V3B 5Y9</p>
+      <div class="label">Phone</div>
+      <p><a href="tel:7789972273">778-997-2273 (CARE)</a></p>
+      <div class="label">Appointments</div>
+      <p>By appointment. Book online any time via our enquiry form.</p>
+      <button class="btn" data-book style="margin-top:1.6rem">Book Now</button>
     </div>
     <div class="map-wrap reveal">
-      <iframe src="https://www.google.com/maps?q=350-2755%20Lougheed%20Hwy%2C%20Port%20Coquitlam%2C%20BC%20V3B%205Y9&output=embed" title="MBK Medical Skin Care location" loading="lazy"></iframe>
+      <iframe title="MBK Medical Skin Care location" loading="lazy" src="https://www.google.com/maps?q=350-2755%20Lougheed%20Hwy%2C%20Port%20Coquitlam%2C%20BC%20V3B%205Y9&output=embed"></iframe>
     </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="final">
-  <div class="reveal">
-    <h2>Ready to feel like <em>yourself</em>?</h2>
-    <p>Book your free initial consultation with our physician. We'll listen, discuss your options honestly, and recommend only what's right for you.</p>
-    <button class="btn btn-primary" onclick="openBooking()">Book Now</button>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="foot-top">
-    <div class="foot-word">
-      <span class="mono">MBK</span>
-      <div class="sub">Medical Skin Care</div>
-      <p class="tag">Cosmetic medicine, done responsibly — in Coquitlam since 2006.</p>
-    </div>
     <div>
-      <h4>Explore</h4>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#treatments">Treatments</a></li>
-        <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><button class="foot-book" onclick="openBooking()">Book Now</button></li>
-      </ul>
+      <div class="foot-brand">MBK<small>Medical Skin Care</small></div>
+      <p class="foot-contact" style="margin-top:1rem;max-width:24rem">Physician-led cosmetic medicine in Central Coquitlam since 2006. Minimal dosages, optimal results, honest advice.</p>
     </div>
-    <div>
-      <h4>Contact</h4>
-      <ul>
-        <li><a href="tel:+17789972273">778-997-2273 (CARE)</a></li>
-        <li>350-2755 Lougheed Hwy,<br>Port Coquitlam, BC V3B 5Y9</li>
-        <li>By appointment only</li>
-      </ul>
+    <div class="foot-links">
+      <a href="#about">About</a>
+      <a href="#treatments">Treatments</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+      <a data-book>Book Now</a>
+    </div>
+    <div class="foot-contact">
+      350-2755 Lougheed Hwy<br>
+      Port Coquitlam, BC V3B 5Y9<br>
+      <a href="tel:7789972273">778-997-2273 (CARE)</a>
     </div>
   </div>
   <div class="foot-bottom">
-    <span>© 2026 MBK Medical Skin Care Ltd.</span>
-    <span>Physician-established · Trusted in Coquitlam since 2006</span>
+    <span>© 2026 MBK Medical Skin Care. All rights reserved.</span>
+    <span>Established 2006 · Dr. Margret B-Kwiatkowski, MD, CCFP, FCFP</span>
   </div>
-  <p class="foot-tm">Botox® and Botox Cosmetic® are registered trademarks of Allergan Inc. Xeomin® is a registered trademark of Merz Pharma. Juvéderm® is a registered trademark of Allergan. Restylane® is a registered trademark of Galderma. Latisse® is a registered trademark of Allergan Inc.</p>
 </footer>
 
 <!-- TREATMENT MODAL -->
-<div class="modal" id="treatModal">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModal('treatModal')" aria-label="Close">&times;</button>
-    <p class="m-eyebrow" id="tmGroup"></p>
+<div class="modal-overlay" id="treatmentModal">
+  <div class="modal">
+    <button class="modal-close" data-close>&times;</button>
+    <div class="eyebrow" id="tmGroup"></div>
     <h3 id="tmTitle"></h3>
-    <p id="tmDesc"></p>
-    <button class="btn btn-primary" style="margin-top:1.8rem" onclick="closeModal('treatModal');openBooking(this.dataset.t)" id="tmBook">Book This Treatment</button>
+    <p id="tmOverview"></p>
+    <h4 id="tmHowLabel">What to expect</h4>
+    <p id="tmHow"></p>
+    <h4>Benefits</h4>
+    <ul id="tmBenefits"></ul>
+    <button class="btn" data-book>Book This Treatment</button>
   </div>
 </div>
 
 <!-- BOOKING MODAL -->
-<div class="modal" id="bookModal">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModal('bookModal')" aria-label="Close">&times;</button>
-    <p class="m-eyebrow">Book Now · Free Initial Consultation</p>
+<div class="modal-overlay" id="bookModal">
+  <div class="modal">
+    <button class="modal-close" data-close>&times;</button>
+    <div class="eyebrow">Booking Enquiry</div>
     <h3>Request an appointment</h3>
-    <p>Send us your details and we'll be in touch to confirm. All visits are by appointment only.</p>
+    <p>Complete the form below and our team will confirm your appointment. Your initial consultation with our doctor is free.</p>
     <form id="bookForm">
-      <label for="bName">Name</label>
-      <input type="text" id="bName" required>
-      <label for="bEmail">Email</label>
-      <input type="email" id="bEmail" required>
-      <label for="bPhone">Phone</label>
-      <input type="tel" id="bPhone" required>
-      <label for="bTreat">Treatment of interest</label>
-      <select id="bTreat"></select>
-      <label for="bMsg">Message</label>
-      <textarea id="bMsg" placeholder="Anything you'd like us to know…"></textarea>
-      <button type="submit" class="btn btn-primary">Submit Request</button>
+      <div class="form-field"><label>Name</label><input type="text" name="name" required></div>
+      <div class="form-field"><label>Email</label><input type="email" name="email" required></div>
+      <div class="form-field"><label>Phone</label><input type="tel" name="phone" required></div>
+      <div class="form-field"><label>Treatment of Interest</label>
+        <select name="treatment" id="bookTreatment"><option value="">Select a treatment…</option></select>
+      </div>
+      <div class="form-field"><label>Message</label><textarea name="message" placeholder="Tell us a little about what you're looking for…"></textarea></div>
+      <button type="submit" class="btn" style="width:100%">Send Enquiry</button>
     </form>
-    <div class="form-success" id="bookSuccess">
-      <p>Thank you — we will be in touch shortly to confirm your appointment.</p>
-    </div>
+    <div class="form-success" id="bookSuccess">Thank you — we will be in touch shortly to confirm your appointment.</div>
   </div>
 </div>
 
 <script>
-/* ---------- DATA ---------- */
-const groups = [
-  {name:"Botox® & Therapeutic", items:[
-    {t:"Botox Cosmetic® & Xeomin® for Wrinkles", d:"The cosmetic use of Botox® (from Allergan) and Xeomin® (from Merz Pharma) is for facial rejuvenation — to reduce and prevent wrinkles. When applied skillfully and at appropriate dosages, they restore a relaxed, youthful appearance without the side effect of a 'frozen look.' Most effective for frown lines between the eyebrows, crow's feet, and forehead wrinkles."},
-    {t:"Botox® for Hyperhidrosis", d:"We use Botox® injections for therapeutic purposes as well as cosmetic. Hyperhidrosis is an excessive sweating of the axilla (armpits) and hands, and it responds well to Botox® for many months — even up to one year."},
-    {t:"Botox® for Migraine Relief", d:"Botox® injections are a proven migraine treatment: they reduce the number of headaches in people who suffer from chronic migraines. Therapeutic treatments may be covered by extended health plans."}
-  ]},
-  {name:"Dermal Fillers", items:[
-    {t:"Hyaluronic Acid Dermal Fillers", d:"Hyaluronic acid is a natural component of skin that provides moisture, cushioning and suppleness. Injectable dermal fillers based on hyaluronic acid gently restore lost fullness and smooth out deep lines, using reputable brand-name products including Juvéderm®, Restylane® and Fortélis®."},
-    {t:"Lip Injections", d:"Hyaluronic acid fillers used to gently augment and define the lips for a soft, natural, balanced result — always with minimal dosages to enhance rather than overfill."}
-  ]},
-  {name:"Laser & IPL", items:[
-    {t:"Laser Vein Treatment", d:"Small veins in the legs are successfully treated with laser therapy — including telangiectasia / spider veins, cherry angiomas, small varicose veins and reticular veins. Upper-body vascular concerns are typically treated with IPL."},
-    {t:"Laser & IPL Hair Removal", d:"Hair is permanently reduced or removed using Intense Pulsed Light (IPL). Our top-of-the-line IPL laser machine features Advanced Contact Cooling, allowing the procedure to be relatively painless, across a range of facial and body areas."},
-    {t:"IPL Photofacial Skin Rejuvenation", d:"Also known as IPL Photorejuvenation, a very popular procedure used for skin tightening, collagen buildup and to reduce the size of large pores. It can help reduce the appearance of scars, age spots, and can improve acne and rosacea for brighter, clearer skin."}
-  ]},
-  {name:"Consultation & Skin Care", items:[
-    {t:"Skin Rejuvenation Consultation", d:"A consultation covering skin rejuvenation, cosmeceuticals and skin protection — FREE for our laser patients ($35 for non-patients, waived when a laser procedure is done)."},
-    {t:"Cryotherapy for Warts & Skin Tags", d:"We use cryotherapy to treat warts, skin tags, seborrheic keratosis (commonly called 'senile warts') and other benign skin lesions. Both cryotherapy and electrocautery may be covered by MSP."},
-    {t:"Latisse® for Eyelashes", d:"Latisse® is a topical prescription solution, approved by FDA and Health Canada, clinically proven to make eyelashes grow longer, fuller and darker. We carry the original, brand-name Latisse® products at competitive prices."}
-  ]}
-];
+/* ---- Treatment data ---- */
+const TREATMENTS = {
+  botox:[
+    {t:"Botox Cosmetic® & Xeomin® for Wrinkles",g:"Botox & Therapeutic",
+     o:"The cosmetic use of Botox® (from Allergan) and Xeomin® (from Merz Pharma) is for facial rejuvenation — to reduce and prevent wrinkles. When applied skillfully and at appropriate dosages, they restore a relaxed, youthful appearance without the side effect of a 'frozen look.'",
+     hl:"How it works",h:"These treatments are most effective for frown lines between the eyebrows, crow's feet and forehead wrinkles. We use minimal dosages to soften expression lines while keeping your face naturally expressive.",
+     b:["Softens frown lines, crow's feet and forehead wrinkles","Natural, relaxed result — no 'frozen look'","Trusted brand-name products: Botox® and Xeomin®","Helps prevent the deepening of dynamic lines"]},
+    {t:"Botox® for Hyperhidrosis",g:"Botox & Therapeutic",
+     o:"We use Botox® injections for therapeutic purposes as well as cosmetic. Hyperhidrosis is an excessive sweating of the axilla (armpits) and hands.",
+     hl:"What to expect",h:"The treated area responds well to Botox®, with relief lasting for many months — in many cases even up to one year — restoring comfort and confidence.",
+     b:["Effective relief for excessive underarm and hand sweating","Results can last many months, up to a year","Discreet, well-tolerated therapeutic treatment","May be covered by extended health plans"]},
+    {t:"Botox® for Migraine Relief",g:"Botox & Therapeutic",
+     o:"Botox® injections are a proven migraine treatment: they reduce the number of headaches in people who suffer from chronic migraines.",
+     hl:"What to expect",h:"Following a physician assessment, treatment is delivered in a calm clinical setting. Therapeutic treatments may be covered by extended health plans.",
+     b:["Proven to reduce frequency of chronic migraines","Performed by a physician-led team","May be covered by extended health plans","Part of our therapeutic Botox® program"]}
+  ],
+  fillers:[
+    {t:"Hyaluronic Acid Dermal Fillers",g:"Dermal Fillers",
+     o:"Hyaluronic acid is a natural component of skin that provides moisture, cushioning and suppleness. Injectable dermal fillers based on hyaluronic acid gently restore lost fullness and smooth out deep lines.",
+     hl:"How it works",h:"Using reputable brand-name products including Juvéderm®, Restylane® and Fortélis®, we replenish volume where it has been lost — always with minimal dosages for a soft, natural outcome.",
+     b:["Restores lost volume and softens deep lines","Reputable brands: Juvéderm®, Restylane®, Fortélis®","Natural, hydrated, supple result","Minimal-dosage philosophy for balanced enhancement"]},
+    {t:"Lip Injections",g:"Dermal Fillers",
+     o:"Hyaluronic acid fillers used to gently augment and define the lips for a soft, natural, balanced result.",
+     hl:"What to expect",h:"We always use minimal dosages to enhance rather than overfill, focusing on definition and harmony with the rest of your features.",
+     b:["Soft, natural lip enhancement","Improved definition and balance","Minimal-dosage approach — never overfilled","Hyaluronic acid — a natural skin component"]}
+  ],
+  laser:[
+    {t:"Laser Vein Treatment",g:"Laser & IPL",
+     o:"Small veins in the legs are successfully treated with laser therapy — including telangiectasia / spider veins, cherry angiomas, small varicose veins and reticular veins.",
+     hl:"How it works",h:"Targeted laser energy treats visible leg veins, while upper-body vascular concerns are typically treated with IPL. Treatments use our state-of-the-art Cynosure equipment.",
+     b:["Treats spider veins, cherry angiomas and reticular veins","Effective for small varicose veins","Upper-body vessels treated with IPL","State-of-the-art Cynosure technology"]},
+    {t:"Laser & IPL Hair Removal",g:"Laser & IPL",
+     o:"Hair is permanently reduced or removed using Intense Pulsed Light (IPL) across a range of facial and body areas.",
+     hl:"What to expect",h:"Our top-of-the-line IPL laser machine features Advanced Contact Cooling, allowing the procedure to be relatively painless while treating multiple areas comfortably.",
+     b:["Permanent hair reduction or removal","Advanced Contact Cooling for comfort","Relatively painless treatment","Suitable for many facial and body areas"]},
+    {t:"IPL Photofacial Skin Rejuvenation",g:"Laser & IPL",
+     o:"Also known as IPL Photorejuvenation, a very popular procedure used for skin tightening, collagen buildup and to reduce the size of large pores.",
+     hl:"How it works",h:"IPL energy stimulates collagen and targets pigment and redness. It can help reduce the appearance of scars and age spots, and improve acne and rosacea for brighter, clearer skin.",
+     b:["Skin tightening and collagen stimulation","Reduces large pores, age spots and scars","Improves acne and rosacea","Brighter, clearer, more even skin"]}
+  ],
+  consult:[
+    {t:"Skin Rejuvenation Consultation",g:"Consultation & Skin Care",
+     o:"A consultation covering skin rejuvenation, cosmeceuticals and skin protection.",
+     hl:"What to expect",h:"We assess your skin and discuss options honestly, guiding you toward the right care and protection. FREE for our laser patients ($35 for non-patients, waived when a laser procedure is done).",
+     b:["Personalized skin rejuvenation guidance","Advice on cosmeceuticals and skin protection","FREE for our laser patients","$35 for non-patients — waived with a laser procedure"]},
+    {t:"Cryotherapy for Warts & Skin Tags",g:"Consultation & Skin Care",
+     o:"We use cryotherapy to treat warts, skin tags, seborrheic keratosis (commonly called 'senile warts') and other benign skin lesions.",
+     hl:"What to expect",h:"A quick, targeted treatment for benign skin lesions. Both cryotherapy and electrocautery may be covered by MSP.",
+     b:["Treats warts, skin tags and seborrheic keratosis","Effective for other benign lesions","Electrocautery also available","Both may be covered by MSP"]},
+    {t:"Latisse® for Eyelashes",g:"Consultation & Skin Care",
+     o:"Latisse® is a topical prescription solution, approved by FDA and Health Canada, clinically proven to make eyelashes grow longer, fuller and darker.",
+     hl:"How it works",h:"Applied topically as directed, Latisse® enhances your natural lashes over time. We carry the original, brand-name Latisse® products at competitive prices.",
+     b:["Longer, fuller, darker lashes","FDA and Health Canada approved","Clinically proven results","Original brand-name product at competitive prices"]}
+  ]
+};
 
-const reviews = [
-  {who:"A.T.", txt:"I cannot thank Ainslie Sessions and Dr. B-Kwiatkowski enough for all they have done for me. Their kind support and professional service have left me feeling and looking like a whole new me."},
-  {who:"J.K.", txt:"Thanks to MBK Medical Skin Care, I can now wear a skirt again in the summer since my varicose veins are gone!"},
-  {who:"A.M.", txt:"The filler treatments have dramatically reduced my facial wrinkles and surgical scars, thank you MBK!"},
-  {who:"G.L.", txt:"Everyone at work now compliments me on my great complexion, thanks to the photorejuvenation and Botox Cosmetic® treatments I've received by MBK Medical Skin Care. Thank you Dr. B-Kwiatkowski and Ainslie Sessions!"},
-  {who:"M.H.", txt:"I have suffered from lines around my eyes for over 10 years now. Thanks to the Botox® Cosmetic injections I received at MBK, I no longer have to worry about my excessive lines."},
-  {who:"J.V.", txt:"I couldn't be happier with the results of the photorejuvenation procedures performed on me at MBK. My rosacea is finally gone!"}
-];
-
-/* ---------- RENDER TREATMENTS ---------- */
-const gc = document.getElementById('treatGroups');
-groups.forEach(g=>{
-  const wrap = document.createElement('div');
-  wrap.className='treat-group reveal';
-  let cards = '';
-  g.items.forEach(it=>{
-    const snip = it.d.length>110 ? it.d.slice(0,110)+'…' : it.d;
-    cards += `<div class="treat-card" data-group="${g.name}" data-title="${it.t.replace(/"/g,'&quot;')}" data-desc="${it.d.replace(/"/g,'&quot;')}">
-      <h3>${it.t}</h3>
-      <p class="snippet">${snip}</p>
-      <span class="more">Learn more →</span>
-    </div>`;
+/* Build cards */
+const allTreatmentNames=[];
+document.querySelectorAll('[data-cards]').forEach(container=>{
+  const key=container.getAttribute('data-cards');
+  TREATMENTS[key].forEach((item,i)=>{
+    allTreatmentNames.push(item.t);
+    const card=document.createElement('div');
+    card.className='tcard';
+    card.innerHTML=`<div><h4>${item.t}</h4><p>${item.o.slice(0,110)}…</p></div><span class="more">Learn more →</span>`;
+    card.addEventListener('click',()=>openTreatment(item));
+    container.appendChild(card);
   });
-  wrap.innerHTML = `<div class="group-title">${g.name}</div><div class="treat-cards">${cards}</div>`;
-  gc.appendChild(wrap);
 });
 
-document.querySelectorAll('.treat-card').forEach(c=>{
-  c.addEventListener('click',()=>{
-    document.getElementById('tmGroup').textContent = c.dataset.group;
-    document.getElementById('tmTitle').textContent = c.dataset.title;
-    document.getElementById('tmDesc').textContent = c.dataset.desc;
-    document.getElementById('tmBook').dataset.t = c.dataset.title;
-    openModal('treatModal');
-  });
-});
+/* Populate booking dropdown */
+const sel=document.getElementById('bookTreatment');
+allTreatmentNames.forEach(n=>{const o=document.createElement('option');o.value=n;o.textContent=n;sel.appendChild(o);});
+const consultOpt=document.createElement('option');consultOpt.value="Free Initial Consultation";consultOpt.textContent="Free Initial Consultation";sel.insertBefore(consultOpt,sel.children[1]);
 
-/* ---------- RENDER REVIEWS ---------- */
-const rg = document.getElementById('revGrid');
-reviews.forEach(r=>{
-  const d = document.createElement('div');
-  d.className='rev-card reveal';
-  d.innerHTML = `<div class="stars">★★★★★</div><p>"${r.txt}"</p><div class="who">— ${r.who}</div>`;
-  rg.appendChild(d);
-});
-
-/* ---------- BOOKING SELECT ---------- */
-const sel = document.getElementById('bTreat');
-let opts = '<option value="">Free Initial Consultation</option>';
-groups.forEach(g=>{
-  g.items.forEach(it=>{ opts += `<option>${it.t}</option>`; });
-});
-sel.innerHTML = opts;
-
-/* ---------- MODAL LOGIC ---------- */
-function openModal(id){document.getElementById(id).classList.add('open');document.body.style.overflow='hidden';}
-function closeModal(id){document.getElementById(id).classList.remove('open');document.body.style.overflow='';}
-function openBooking(pre){
-  if(pre){ sel.value = pre; if(sel.value!==pre){sel.value='';} }
-  document.getElementById('bookForm').style.display='block';
-  document.getElementById('bookSuccess').classList.remove('show');
-  openModal('bookModal');
+/* Modals */
+const tModal=document.getElementById('treatmentModal');
+const bModal=document.getElementById('bookModal');
+function openModal(m){m.classList.add('open');document.body.style.overflow='hidden';}
+function closeModal(m){m.classList.remove('open');document.body.style.overflow='';}
+function openTreatment(item){
+  document.getElementById('tmGroup').textContent=item.g;
+  document.getElementById('tmTitle').textContent=item.t;
+  document.getElementById('tmOverview').textContent=item.o;
+  document.getElementById('tmHowLabel').textContent=item.hl;
+  document.getElementById('tmHow').textContent=item.h;
+  const ul=document.getElementById('tmBenefits');ul.innerHTML='';
+  item.b.forEach(b=>{const li=document.createElement('li');li.textContent=b;ul.appendChild(li);});
+  openModal(tModal);
 }
-document.querySelectorAll('.modal').forEach(m=>{
-  m.addEventListener('click',e=>{ if(e.target===m) closeModal(m.id); });
-});
-document.addEventListener('keydown',e=>{ if(e.key==='Escape') document.querySelectorAll('.modal.open').forEach(m=>closeModal(m.id)); });
+document.querySelectorAll('[data-book]').forEach(el=>el.addEventListener('click',e=>{
+  e.preventDefault();closeModal(tModal);openModal(bModal);
+}));
+document.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click',()=>{closeModal(tModal);closeModal(bModal);}));
+[tModal,bModal].forEach(m=>m.addEventListener('click',e=>{if(e.target===m)closeModal(m);}));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal(tModal);closeModal(bModal);}});
 
+/* Form */
 document.getElementById('bookForm').addEventListener('submit',e=>{
   e.preventDefault();
   e.target.style.display='none';
   document.getElementById('bookSuccess').classList.add('show');
 });
 
-/* ---------- NAV ---------- */
-const ham = document.getElementById('hamburger');
-const nl = document.getElementById('navLinks');
-ham.addEventListener('click',()=>nl.classList.toggle('open'));
-nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nl.classList.remove('open')));
+/* Nav scroll + hamburger */
+const nav=document.getElementById('topnav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40);});
+const burger=document.getElementById('hamburger'),links=document.getElementById('navlinks');
+burger.addEventListener('click',()=>links.classList.toggle('open'));
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
 
-/* ---------- REVEAL ---------- */
-document.documentElement.classList.add('js');
-const revealEls = document.querySelectorAll('.reveal');
-const io = new IntersectionObserver(es=>{
-  es.forEach(en=>{ if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);} });
-},{threshold:.08, rootMargin:'0px 0px -5% 0px'});
-revealEls.forEach(el=>io.observe(el));
-/* fail-safe: never leave content hidden */
-setTimeout(()=>{ revealEls.forEach(el=>el.classList.add('in')); }, 2500);
+/* Reveal */
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+},{threshold:.15});
+document.querySelectorAll('.reveal,.stagger').forEach(el=>io.observe(el));
 </script>
+<!-- ===== POLISH LAYER (inject before </body>) — custom cursor + refined hover/motion ===== -->
+<style id="polish-layer">
+@media (hover:hover) and (pointer:fine){
+  /* custom cursor: a fast dot + a lagging ring, blend against any background */
+  * { cursor: none !important; }
+  #pl-dot,#pl-ring{position:fixed;top:0;left:0;z-index:2147483647;pointer-events:none;border-radius:50%;
+    mix-blend-mode:difference;will-change:transform;transform:translate3d(-50%,-50%,0);}
+  #pl-dot{width:7px;height:7px;background:#fff;transition:width .25s ease,height .25s ease,opacity .3s;}
+  #pl-ring{width:34px;height:34px;border:1px solid rgba(255,255,255,.85);
+    transition:width .3s cubic-bezier(.16,1,.3,1),height .3s cubic-bezier(.16,1,.3,1),opacity .3s,background .3s;}
+  #pl-ring.hot{width:56px;height:56px;background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.95);}
+  #pl-dot.hot{width:0;height:0;opacity:0;}
+  #pl-ring.down{width:26px;height:26px;}
+}
+/* refined hover motion — additive, does not hide content */
+a,button,.btn{transition:color .35s ease,background-color .35s ease,border-color .35s ease,transform .35s cubic-bezier(.16,1,.3,1),box-shadow .45s ease;}
+.btn:hover{transform:translateY(-2px);}
+/* card lift: target common card patterns from the recipe */
+[class*="card"],[class*="Card"],.member,.t-card,.svc-cat,.review,.testi-card,.blog-card,.rcard,.group .item,.tile{
+  transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .55s ease,border-color .45s ease !important;}
+[class*="card"]:hover,[class*="Card"]:hover,.member:hover,.t-card:hover,.svc-cat:hover,.review:hover,.testi-card:hover,.blog-card:hover,.rcard:hover,.tile:hover{
+  transform:translateY(-6px) !important;box-shadow:0 22px 50px rgba(20,18,15,.13) !important;}
+/* image zoom inside any overflow-clipped container */
+[class*="card"] img,[class*="Card"] img,.member img,.ph img,.about-mark img,.about-visual img,.about-block img,.rph img,.hero-img,figure img{
+  transition:transform .8s cubic-bezier(.16,1,.3,1) !important;}
+[class*="card"]:hover img,[class*="Card"]:hover img,.member:hover img,.ph:hover img,figure:hover img{transform:scale(1.05) !important;}
+/* animated underline on nav links */
+nav a:not(.btn):not(.logo)::after,.nav a:not(.btn):not(.logo)::after,.navlinks a::after{
+  content:"";position:absolute;left:0;bottom:-3px;width:0;height:1px;background:currentColor;opacity:.6;transition:width .4s cubic-bezier(.16,1,.3,1);}
+nav a:not(.btn):not(.logo),.nav a:not(.btn):not(.logo),.navlinks a{position:relative;}
+nav a:not(.btn):not(.logo):hover::after,.nav a:not(.btn):not(.logo):hover::after,.navlinks a:hover::after{width:100%;}
+@media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important;} #pl-dot,#pl-ring{display:none !important;} *{cursor:auto !important;}}
+</style>
+<script id="polish-script">
+(function(){
+  if(!window.matchMedia||!window.matchMedia("(hover:hover) and (pointer:fine)").matches) return;
+  if(window.matchMedia("(prefers-reduced-motion:reduce)").matches) return;
+  var dot=document.createElement("div"),ring=document.createElement("div");
+  dot.id="pl-dot";ring.id="pl-ring";document.body.appendChild(dot);document.body.appendChild(ring);
+  var mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
+  addEventListener("mousemove",function(e){mx=e.clientX;my=e.clientY;dot.style.transform="translate3d("+(mx-3.5)+"px,"+(my-3.5)+"px,0)";},{passive:true});
+  (function loop(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.transform="translate3d("+(rx-17)+"px,"+(ry-17)+"px,0)";requestAnimationFrame(loop);})();
+  var hot="a,button,.btn,input,textarea,select,[onclick],[role=button],label";
+  addEventListener("mouseover",function(e){ if(e.target.closest(hot)){ring.classList.add("hot");dot.classList.add("hot");}});
+  addEventListener("mouseout",function(e){ if(e.target.closest(hot)){ring.classList.remove("hot");dot.classList.remove("hot");}});
+  addEventListener("mousedown",function(){ring.classList.add("down");});
+  addEventListener("mouseup",function(){ring.classList.remove("down");});
+  addEventListener("mouseleave",function(){dot.style.opacity=0;ring.style.opacity=0;});
+  addEventListener("mouseenter",function(){dot.style.opacity=1;ring.style.opacity=1;});
+})();
+</script>
+<!-- ===== END POLISH LAYER ===== -->
+
 </body>
 </html>
